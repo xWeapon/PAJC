@@ -95,5 +95,14 @@ public class MyApp {
 		btnClear.setBounds(130, 217, 89, 23);
 		frame.getContentPane().add(btnClear);
 		
+		JButton btnNewButton = new JButton("Esci");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(JFrame.EXIT_ON_CLOSE);
+			}
+		});
+		btnNewButton.setBounds(284, 217, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		
 	}
 }
