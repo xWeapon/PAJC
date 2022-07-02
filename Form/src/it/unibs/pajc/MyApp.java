@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import java.awt.Font;
 
+
 public class MyApp {
 
 	private JFrame frame;

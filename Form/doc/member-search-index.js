@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"it.unibs.pajc","c":"MyApp","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"it.unibs.pajc","c":"MyApp","l":"MyApp()","u":"%3Cinit%3E()"}];updateSearchResults();
