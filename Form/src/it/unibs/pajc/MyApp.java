@@ -10,15 +10,19 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
+import java.awt.Font;
 
 public class MyApp {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField userTextField;
+	private JTextField passwdTextField;
+	private String username = "pippo";
+	private String password = "pluto";
 
 	/**
 	 * Launch the application.
@@ -53,47 +57,39 @@ public class MyApp {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblUsername = new JLabel("USERNAME");
+		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblUsername.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUsername.setBounds(20, 37, 100, 30);
+		lblUsername.setBounds(20, 65, 100, 30);
 		frame.getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("PASSWORD");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPassword.setBounds(20, 94, 100, 30);
+		lblPassword.setBounds(20, 110, 100, 30);
 		frame.getContentPane().add(lblPassword);
 		
-		JLabel lblstatus = new JLabel("--");
-		lblstatus.setBounds(229, 179, 142, 30);
-		frame.getContentPane().add(lblstatus);
-		
-		textField_1 = new JPasswordField();
-		((JPasswordField) textField_1).setEchoChar('*');
-		textField_1.setColumns(10);
-		textField_1.setBounds(130, 99, 241, 20);
-		frame.getContentPane().add(textField_1);
+		passwdTextField = new JPasswordField();
+		((JPasswordField) passwdTextField).setEchoChar('*');
+		passwdTextField.setColumns(10);
+		passwdTextField.setBounds(130, 115, 241, 20);
+		frame.getContentPane().add(passwdTextField);
 		
 		JButton btnLogin = new JButton("LOG IN");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblstatus.setText(textField_1.getText());
+				if(userTextField.equals(username.toString()) && passwdTextField.equals(password.toString())) {
+					JOptionPane.showMessageDialog(null, "Logged");
+					
+				}else JOptionPane.showMessageDialog(null, "Not valid.");
 			}
 		});
-		btnLogin.setBounds(130, 183, 89, 23);
+		btnLogin.setBounds(191, 166, 89, 23);
 		frame.getContentPane().add(btnLogin);
 		
-		textField = new JTextField();
-		textField.setBounds(130, 42, 241, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		JButton btnClear = new JButton("CLEAR");
-		btnClear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				lblstatus.setText("--");
-			}
-		});
-		btnClear.setBounds(130, 217, 89, 23);
-		frame.getContentPane().add(btnClear);
+		userTextField = new JTextField();
+		userTextField.setBounds(130, 70, 241, 20);
+		frame.getContentPane().add(userTextField);
+		userTextField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Esci");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -101,8 +97,14 @@ public class MyApp {
 				System.exit(JFrame.EXIT_ON_CLOSE);
 			}
 		});
-		btnNewButton.setBounds(284, 217, 89, 23);
+		btnNewButton.setBounds(31, 229, 89, 23);
 		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("ACCESS FORM");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(170, 11, 124, 48);
+		frame.getContentPane().add(lblNewLabel);
 		
 	}
 }
